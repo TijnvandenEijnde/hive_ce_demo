@@ -1,9 +1,9 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'hive_adapters.dart';
+part of 'product.dart';
 
 // **************************************************************************
-// AdaptersGenerator
+// TypeAdapterGenerator
 // **************************************************************************
 
 class ProductAdapter extends TypeAdapter<Product> {
@@ -48,6 +48,43 @@ class ProductAdapter extends TypeAdapter<Product> {
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is ProductAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class CategoriesAdapter extends TypeAdapter<Categories> {
+  @override
+  final int typeId = 1;
+
+  @override
+  Categories read(BinaryReader reader) {
+    switch (reader.readByte()) {
+      case 0:
+        return Categories.beauty;
+      case 1:
+        return Categories.fragrances;
+      default:
+        return Categories.beauty;
+    }
+  }
+
+  @override
+  void write(BinaryWriter writer, Categories obj) {
+    switch (obj) {
+      case Categories.beauty:
+        writer.writeByte(0);
+      case Categories.fragrances:
+        writer.writeByte(1);
+    }
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CategoriesAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

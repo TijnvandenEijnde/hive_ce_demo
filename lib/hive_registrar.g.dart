@@ -3,10 +3,11 @@
 // Check in to version control
 
 import 'package:hive_ce/hive.dart';
-import 'package:hive_database_demo/hive_adapters.dart';
+import 'package:hive_database_demo/product.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
+    registerAdapter(CategoriesAdapter());
     registerAdapter(ProductAdapter());
   }
 }
