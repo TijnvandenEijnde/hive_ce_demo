@@ -11,14 +11,14 @@ class InventoryPage extends StatefulWidget {
 }
 
 class _InventoryPageState extends State<InventoryPage> {
-  void _increment(Box<Product> productBox, Product product) async {
+  void _increment(Box<Product> productBox, Product product) {
     product.stock++;
-    product.save();
+    productBox.put(product.key, product);
   }
 
-  void _decrement(Box<Product> productBox, Product product) async {
+  void _decrement(Box<Product> productBox, Product product) {
     product.stock--;
-    product.save();
+    productBox.put(product.key, product);
   }
 
   @override
@@ -50,7 +50,7 @@ class _InventoryPageState extends State<InventoryPage> {
 
               return Dismissible(
                 key: ValueKey(product.id),
-                onDismissed: (DismissDirection direction) async =>
+                onDismissed: (DismissDirection direction) =>
                     box.delete(product.key),
                 background: const ColoredBox(color: Colors.red),
                 child: ListTile(

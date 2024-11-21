@@ -20,9 +20,12 @@ class ProductList extends StatelessWidget {
         itemCount: products.length,
         itemBuilder: (BuildContext context, int index) {
           final product = Product.fromJson(products[index].toJson());
-          final isReceived = box.values
-                  .where((Product existing) => existing.id == product.id)
-                  .firstOrNull != null;
+
+          final matchingProduct = box.values.where((Product existingProduct) {
+            return existingProduct.id == product.id;
+          }).firstOrNull;
+
+          final isReceived = matchingProduct != null;
 
           return Card(
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -46,8 +49,7 @@ class ProductList extends StatelessWidget {
                     children: [
                       Text('(${product.stock}) \$${product.price.toString()}'),
                       TextButton(
-                        onPressed:
-                            isReceived ? null : () async => box.add(product),
+                        onPressed: isReceived ? null : () => box.add(product),
                         child: isReceived
                             ? const Text('Received')
                             : const Text('Add'),

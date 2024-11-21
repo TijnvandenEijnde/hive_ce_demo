@@ -27,7 +27,7 @@ class _OrderPageState extends State<OrderPage> {
     await http.get(Uri.parse('https://dummyjson.com/products?limit=10'));
 
     if (response.statusCode == 200) {
-      final bodyJson = jsonDecode(response.body) as Map<String, dynamic>;
+      final bodyJson = (jsonDecode(response.body) as Map).cast<String, dynamic>();
       final productsJson = bodyJson['products'] as List;
 
       setState(() => products = productsJson
