@@ -1,9 +1,9 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'product.dart';
+part of 'hive_adapters.dart';
 
 // **************************************************************************
-// TypeAdapterGenerator
+// AdaptersGenerator
 // **************************************************************************
 
 class ProductAdapter extends TypeAdapter<Product> {

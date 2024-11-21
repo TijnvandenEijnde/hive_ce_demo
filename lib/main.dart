@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:hive_database_demo/hive_boxes.dart';
-import 'package:hive_database_demo/hive_registrar.g.dart';
+import 'package:hive_database_demo/hive/hive_registrar.g.dart';
 import 'package:hive_database_demo/order_page.dart';
 import 'package:hive_database_demo/product.dart';
 
